@@ -27,9 +27,9 @@ public class Logica {
      * con ellos se construye el vector original
      * @param op parametro opcion (1/0) para iniciar o cerrar el programa
      */
-    public void capturaDeDatos(byte op){
+    public void capturaDeDatos(byte opcion){
         String valor,vectorNumeros="";       
-        while(op==1){
+        while(opcion==1){
             System.out.println(" Ingrese el numero del arreglo : ");
             valor=consola.next();
             if(validacionNumeros(valor)){
@@ -38,7 +38,7 @@ public class Logica {
                     if(mensajeContinuar()==1){
                         vectorNumeros=vectorNumeros+",";
                     }else{
-                        op=0;
+                        opcion=0;
                     }
                 }else{
                     System.out.println("El numero ya fue ingresado ");
@@ -154,7 +154,7 @@ public class Logica {
      */
     public byte mensajeContinuar(){
         //consola = new Scanner(System.in);
-        System.out.println("Continuar?  (SI = 1 / NO = 0): ");
+        System.out.println("Desea seguir agregando numeros ?  (SI = 1 / NO = 0): ");
         String opcion = consola.next();        
         if(validacionNumeros(opcion)==true){
            return Byte.parseByte(opcion); 
