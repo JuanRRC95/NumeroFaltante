@@ -5,7 +5,7 @@
  */
 package com.udec.Logica;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,7 +21,13 @@ public class Logica {
      */
     private int[] vector;
     private Scanner consola = new Scanner(System.in);
+
+    /**
+     * Constructor vacio de la clase.
+     */
+    public Logica() {
     
+    }
     /**
      * Esta clase se encarga de captiurar los numeros dados por el usuario,
      * con ellos se construye el vector original
