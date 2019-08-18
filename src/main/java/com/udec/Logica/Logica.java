@@ -30,7 +30,7 @@ public class Logica {
     public void capturaDeDatos(byte op){
         String valor,vectorNumeros="";       
         while(op==1){
-            System.out.println(" Ingrese el valor : ");
+            System.out.println(" Ingrese el numero del arreglo : ");
             valor=consola.next();
             if(validacionNumeros(valor)){
                 if(!numeroRepetido(vectorNumeros, valor)){
