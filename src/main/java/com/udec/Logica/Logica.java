@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.udec.Logica;
 
 
@@ -19,7 +14,7 @@ public class Logica {
     /**
      * Variables globales de la clase
      */
-    private int[] vector;
+    private short[] vector;
     private Scanner consola = new Scanner(System.in);
 
     /**
@@ -31,14 +26,14 @@ public class Logica {
     /**
      * Esta clase se encarga de captiurar los numeros dados por el usuario,
      * con ellos se construye el vector original
-     * @param op parametro opcion (1/0) para iniciar o cerrar el programa
+     * @param opcion parametro opcion (1/0) para iniciar o cerrar el programa
      */
     public void capturaDeDatos(byte opcion){
         String valor,vectorNumeros="";       
         while(opcion==1){
             System.out.println(" Ingrese el numero del arreglo : ");
             valor=consola.next();
-            if(validacionNumeros(valor)){
+            if(validacionNumeros(valor)){ 
                 if(!numeroRepetido(vectorNumeros, valor)){
                     vectorNumeros=vectorNumeros+valor;
                     if(mensajeContinuar()==1){
@@ -62,12 +57,12 @@ public class Logica {
      * @param vectorNumeros cadena de tipo String que contiene los numeros ingresados
      * @return retorna un arreglo de tipo entero
      */
-    public int[] generadorDeVector(String vectorNumeros){
+    public short[] generadorDeVector(String vectorNumeros){
         //int vector[] = new int[];
         String[] cadenaNumeros = vectorNumeros.split(",");
-        vector = new int[cadenaNumeros.length];
-        for(int i=0;i<cadenaNumeros.length;i++){
-                vector[i]= Integer.parseInt(cadenaNumeros[i]);    
+        vector = new short[cadenaNumeros.length];
+        for(short i=0;i<cadenaNumeros.length;i++){
+                vector[i]= Short.parseShort(cadenaNumeros[i]);    
         }
         return vector;
     }
@@ -76,13 +71,13 @@ public class Logica {
      * Funcion que recorre un arreglo de tipo entero e imprime que numero(s) faltan
      * @param vector arreglo de tipo entero que contiene los numeros ingresados
      */
-    public void retornoNumerosFaltantes(int[] vector){
+    public void retornoNumerosFaltantes(short[] vector){
         Arrays.sort(vector); 
         String mensaje="";
-        int minimo = vector[0];
+        short minimo = vector[0];
         for(minimo = vector[0];minimo<=vector[vector.length-1];minimo++){           
             byte estado=0;
-            for(int i=0;i<vector.length;i++){
+            for(short i=0;i<vector.length;i++){
                 if(vector[i]==minimo){
                     estado = 1;
                 }              
@@ -102,10 +97,10 @@ public class Logica {
      * @return retorna true o false dependiendo si el numero ya estaba o no en arreglo
      */
     public boolean numeroRepetido(String vector,String numeroIngresado){
-        int numero = Integer.parseInt(numeroIngresado);
+        short numero = Short.parseShort(numeroIngresado);
         if(vector.length()!=0){
             String[] cadenaNumeros = vector.split(",");
-            for(int i=0;i<cadenaNumeros.length;i++){
+            for(short i=0;i<cadenaNumeros.length;i++){
                 if(numero==Integer.parseInt(cadenaNumeros[i])){
                     return true;
                 }
